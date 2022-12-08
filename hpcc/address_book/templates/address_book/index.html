@@ -1,0 +1,50 @@
+{% extends "address_book/base.html" %}
+
+{% block title %}Address Book{% endblock title %}
+
+{% block content %}
+
+<div class="row">
+  <div class="col-lg-8 offset-lg-2">
+    <div class="card">
+      <div class="card-header">Add Person</div>
+      <div class="card-body">
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-lg-12">
+    <div class="card">
+      <div class="card-header">People</div>
+
+      <div class="card-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th class="col">Name</th>
+              <th class="col">Phone Number</th>
+              <th class="col">City</th>
+              <th class="col">Edit User</th>
+            </tr>
+          </thead>
+
+          <tbody class="align-baseline">
+            {% for user in users %}
+              <tr>
+                <td>{{ user.first_name }} {{ user.last_name }}</td>
+                <td>{{ user.phone_number }}</td>
+                <td>{{ user.address.city }}</td>
+                <td><a class="btn btn-success btn-sm" href="/edit_user/{{ user.pk }}">Edit</button></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock content %}
