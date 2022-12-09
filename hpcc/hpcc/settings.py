@@ -27,6 +27,7 @@ SECRET_KEY = os.environ['ADDR_BOOK_SECRET_KEY']
 DEBUG = False
 
 ALLOWED_HOSTS = ['*']
+CSRF_TRUSTED_ORIGINS = ["http://localhost:8888", "http://localhost:8080"]
 
 
 # Application definition
