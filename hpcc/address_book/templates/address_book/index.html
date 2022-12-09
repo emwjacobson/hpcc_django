@@ -7,9 +7,99 @@
 <div class="row">
   <div class="col-lg-8 offset-lg-2">
     <div class="card">
-      <div class="card-header">Add Person</div>
-      <div class="card-body">
+      <div class="card-header" data-bs-toggle="collapse" href="#add_user_collapse" role="button">Add Person</div>
+      <div class="card-body collapse" id="add_user_collapse">
+        <form action="{% url 'addr_book:add_user' %}" method="post">
+          {% csrf_token %}
 
+          <div class="row">
+            <div class="col-12">
+              User Info
+              <hr>
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-lg-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="user_first_name" id="user_first_name" value="{{ user.first_name }}">
+                <label for="user_first_name">First Name</label>
+              </div>
+            </div>
+
+            <div class="col-lg-6">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="user_last_name" id="user_last_name" value="{{ user.last_name }}">
+                <label for="user_last_name">Last Name</label>
+              </div>
+            </div>
+
+            <div class="col-lg-12">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="user_phone_number" id="user_phone_number" value="{{ user.phone_number }}">
+                <label for="user_phone_number">Phone Number</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-12">
+              Address Info
+              <hr>
+            </div>
+          </div>
+
+          <div class="row g-3">
+            <div class="col-lg-4">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="address_number" id="address_number" value="{{ user.address.number }}">
+                <label for="address_number">House Number</label>
+              </div>
+            </div>
+
+            <div class="col-lg-5">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="address_street_name" id="address_street_name" value="{{ user.address.street_name }}">
+                <label for="address_street_name">Street Name</label>
+              </div>
+            </div>
+
+            <div class="col-lg-3">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="address_apt" id="address_apt" value="{{ user.address.apt }}">
+                <label for="address_apt">Apt Number</label>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="address_zip_code" id="address_zip_code" value="{{ user.address.zip_code }}">
+                <label for="address_zip_code">Zip Code</label>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="address_city" id="address_city" value="{{ user.address.city }}">
+                <label for="address_city">City</label>
+              </div>
+            </div>
+
+            <div class="col-lg-4">
+              <div class="form-floating">
+                <input type="text" class="form-control" name="address_state" id="address_state" value="{{ user.address.state }}">
+                <label for="address_state">State</label>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row mt-3">
+            <div class="col-lg-12 d-grid">
+              <input type="submit" class="btn btn-success" value="Submit">
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   </div>
