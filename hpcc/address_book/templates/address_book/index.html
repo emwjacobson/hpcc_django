@@ -127,7 +127,9 @@
                 <td>{{ user.first_name }} {{ user.last_name }}</td>
                 <td>{{ user.phone_number }}</td>
                 <td>{{ user.address.city }}</td>
-                <td><a class="btn btn-success btn-sm" href="/edit_user/{{ user.pk }}">Edit</button></td>
+                <td>
+                  <a class="btn btn-success btn-sm" href="/edit_user/{{ user.pk }}">Edit</a>
+                </td>
               </tr>
             {% endfor %}
           </tbody>
@@ -136,5 +138,6 @@
     </div>
   </div>
 </div>
+
 
 {% endblock content %}

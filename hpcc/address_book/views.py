@@ -42,8 +42,6 @@ def edit_user_modify(request, user_id):
         return HttpResponseRedirect(reverse("addr_book:index"))
 
 def add_user(request):
-    print(request.POST)
-    
     # First try and add the address
     try:
         addr = Address(
@@ -78,4 +76,13 @@ def add_user(request):
         return HttpResponseRedirect(reverse("addr_book:index"))
         
     # If everything goes well, forward to index
+    return HttpResponseRedirect(reverse("addr_book:index"))
+
+def delete_user(request, user_id):
+    try:
+        user = User.objects.get(pk=user_id)
+        user.address.delete() # Will cascade
+    except User.DoesNotExist:
+        return HttpResponseRedirect(reverse("addr_book:index"))
+    
     return HttpResponseRedirect(reverse("addr_book:index"))
